@@ -8,19 +8,21 @@ class Form extends Component {
       onSaveButtonClick, hasTrunfo } = this.props;
 
     return (
-      <form>
-        <label htmlFor="name">
-          Name:
-          <input
-            value={ cardName }
-            onChange={ onInputChange }
-            type="text"
-            data-testid="name-input"
-            id="name"
-          />
-        </label>
-        <label htmlFor="description">
-          Description:
+      <form className="form-container">
+        <div className="name-container">
+          <label htmlFor="name">
+            Name:
+            <input
+              value={ cardName }
+              onChange={ onInputChange }
+              type="text"
+              data-testid="name-input"
+              id="name"
+            />
+          </label>
+        </div>
+        <label htmlFor="description-input">
+          Descrição:
           <textarea
             value={ cardDescription }
             onChange={ onInputChange }
@@ -29,7 +31,7 @@ class Form extends Component {
           />
         </label>
         <label htmlFor="attr1">
-          Attribute 1:
+          Loucura:
           <input
             value={ cardAttr1 }
             onChange={ onInputChange }
@@ -39,7 +41,7 @@ class Form extends Component {
           />
         </label>
         <label htmlFor="attr2">
-          Attribute 2:
+          Talento:
           <input
             value={ cardAttr2 }
             onChange={ onInputChange }
@@ -49,7 +51,7 @@ class Form extends Component {
           />
         </label>
         <label htmlFor="attr3">
-          Attribute 3:
+          Arma usada:
           <input
             value={ cardAttr3 }
             onChange={ onInputChange }
@@ -68,8 +70,8 @@ class Form extends Component {
             id="image"
           />
         </label>
-        <label htmlFor="rare">
-          Rarity:
+        <label htmlFor="rare" className="rare-input">
+          Raridade:
           <select
             value={ cardRare }
             onChange={ onInputChange }
@@ -82,7 +84,7 @@ class Form extends Component {
           </select>
         </label>
         {(hasTrunfo) ? <span>Você já tem um Super trunfo em seu baralho </span> : (
-          <label htmlFor="cardTrunfo">
+          <label label className="trunfo-input" htmlFor="cardTrunfo">
             Super Trunfo:
             <input
               checked={ cardTrunfo }

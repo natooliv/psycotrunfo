@@ -8,22 +8,46 @@ class Card extends React.Component {
 
     return (
       <div>
-        <h2 data-testid="name-card">{ cardName }</h2>
-        <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-        <p data-testid="description-card">{ cardDescription }</p>
-        <span data-testid="attr1-card">{ cardAttr1 }</span>
-        <span data-testid="attr2-card">{ cardAttr2 }</span>
-        <span data-testid="attr3-card">{ cardAttr3 }</span>
-        <h4 data-testid="rare-card">{ cardRare }</h4>
-        { (cardTrunfo) && <h2 data-testid="trunfo-card">Super Trunfo</h2> }
-        { (btnDelete) && (
-          <button
-            onClick={ () => cardDelete(cardName) }
-            data-testid="delete-button"
-            type="button"
-          >
-            Excluir
-          </button>) }
+        <div className="cardPreview-container">
+          <div className="cardPreview">
+            <h2 data-testid="name-card" className="cardTitle">{cardName}</h2>
+            <img data-testid="image-card" src={ cardImage } alt={ cardName } />
+            <p
+              data-testid="description-card"
+              className="cardDescription"
+            >
+              {cardDescription}
+              {' '}
+
+            </p>
+            <div className="attr-container">
+              <span data-testid="attr-1" className="atrr">{cardAttr1}</span>
+
+            </div>
+            <div className="attr-2">
+              <p>Loucura: </p>
+              <span data-testid="attr2-card" className="atrr">{cardAttr2}</span>
+            </div>
+            <div className="attr-3">
+              <p>Perigo: </p>
+              <span data-testid="attr3-card" className="atrr">{cardAttr3}</span>
+            </div>
+            <div className="rare-container">
+              <p>Raridade: </p>
+              <h4 data-testid="rare-card">{cardRare}</h4>
+            </div>
+          </div>
+          {(cardTrunfo) && <h2 data-testid="trunfo-card" id="trunfo">Super Trunfo</h2>}
+          {(btnDelete) && (
+            <button
+              onClick={ () => cardDelete(cardName) }
+              data-testid="delete-button"
+              type="button"
+              className="delete-button"
+            >
+              Excluir
+            </button>)}
+        </div>
       </div>
     );
   }
